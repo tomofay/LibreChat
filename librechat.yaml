@@ -1,0 +1,67 @@
+version: 1.0.8
+
+cache: true
+
+interface:
+  privacyPolicy:
+    externalUrl: "https://example.com/privacy"
+    openNewTab: true
+  termsOfService:
+    externalUrl: "https://example.com/terms"
+    openNewTab: true
+    modalAcceptance: true
+    modalTitle: "Terms of Service"
+    modalContent: |
+      # Terms of Service
+      ## Introduction
+      Welcome to LibreChat!
+  endpointsMenu: false
+  modelSelect: false
+  parameters: false
+  sidePanel: true
+  presets: false
+  prompts: false
+  bookmarks: true
+  multiConvo: false
+modelSpecs:
+  enforce: true
+  prioritize: true
+  list:
+          - name: "Kondang Ai"
+            label: "Kondang Ai"
+            description: "Kondang Ai Adalah Ai Terbaik Di Dunia"
+            iconURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgGWW4Yfs8Cv63EsvpDfFet_2BU9UTQzjjnA&s"
+            preset:
+              default: true
+              endpoint: "groq"
+              model: "llama3-8b-8192"
+              maxContextTokens: 128000 # Maximum context tokens
+              max_tokens: 4096 # Maximum output tokens
+              temperature: 0.8
+              modelLabel: "Kondang Ai"
+              greeting: |
+                Kondang Ai Siap Membantumu
+              promptPrefix: |
+                Nama kamu adalah Kondang Ai, asisten paling hebat di dunia. Kamu mengetahui tentang segala hal yang ada di dunia ini, kamu berasal dari Indonesia dan hanya menggunakan bahasa Indonesia. Penciptamu adalah Galih Wisnu Baratha.
+
+registration:
+  socialLogins: ["discord", "facebook", "github", "google", "openid"]
+
+endpoints:
+  custom:
+    # groq
+    - name: "groq"
+      apiKey: "${GROQ_API_KEY}"
+      baseURL: "https://api.groq.com/openai/v1/"
+      models:
+        default: [
+          "llama3-8b-8192",
+        ]
+        fetch: false
+      titleConvo: true
+      titleModel: "llama3-8b-8192"
+      modelDisplayLabel: "groq"
+
+
+
+      
